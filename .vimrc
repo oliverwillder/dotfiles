@@ -29,13 +29,11 @@ call vundle#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-better-whitespace
-
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " lightline statusbar
-
 set laststatus=2
 set noshowmode
 let g:lightline = {
@@ -51,12 +49,10 @@ let g:lightline = {
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
-
 let NERDTreeWinSize = 80
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
-
 let g:ctrlp_user_command = 'ag %s --hidden --no-color -g ""'
 let g:ctrlp_use_caching = 1
 
