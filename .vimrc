@@ -77,16 +77,16 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" toggle NERDTree menu
-map <Leader>f :NERDTreeToggle<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl key bindings
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" grepping
+" toggle NERDTree menu
+nmap <C-f> :NERDTreeToggle<CR>
+imap <C-f> <esc><C-f>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" grepping
 nmap <C-g> :vnew<CR>:grep<space>
 nmap <C-n> :cn<CR>
 nmap <C-p> :cp<CR>
