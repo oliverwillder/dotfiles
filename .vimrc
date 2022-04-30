@@ -73,6 +73,14 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" copy current filename to the clipboard
+nmap <leader>fn :let @* = expand("%")<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" code folding
+nmap <leader>k za
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl key bindings
 
@@ -126,6 +134,12 @@ inoremap <Down> <nop>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Settings
+
+" code folding defaults
+set foldmethod=indent
+set foldlevel=1
+set foldnestmax=1
+set foldclose=""
 
 " use ag instead of grep
 set grepprg=ag
