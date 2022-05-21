@@ -37,15 +37,15 @@ let g:strip_whitespace_on_save=1
 set laststatus=2
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+       \ 'colorscheme': 'jellybeans',
+       \ 'active': {
+       \   'left': [ [ 'mode', 'paste' ],
+       \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
+       \ },
+       \ 'component_function': {
+       \   'gitbranch': 'FugitiveHead'
+       \ },
+       \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
@@ -66,11 +66,11 @@ let mapleader=" "
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-test
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
+nmap <silent> <leader>t :w<CR>:TestNearest<CR>
+nmap <silent> <leader>T :w<CR>:TestFile<CR>
+nmap <silent> <leader>a :w<CR>:TestSuite<CR>
+nmap <silent> <leader>l :w<CR>:TestLast<CR>
+nmap <silent> <leader>g :w<CR>:TestVisit<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " copy current filename to the clipboard
@@ -85,32 +85,41 @@ nmap <leader>k za
 " Ctrl key bindings
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" toggle NERDTree menu
-nmap <C-f> :NERDTreeToggle<CR>
-imap <C-f> <esc><C-f>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " grepping
-nmap <C-g> :vnew<CR>:grep<space>
+nmap <C-g> :vnew<CR>:grep<Space>
 nmap <C-n> :cn<CR>
 nmap <C-p> :cp<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CtrlP becomes CtrlA
+" CtrlP becomes CtrlA (nmode C-p used for flicking through grep results)
 let g:ctrlp_map = '<C-a>'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " save file
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
+nmap <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" inverted carriage return
-imap <C-o> <esc>O
+" toggle NERDTree menu
+nmap <C-f> :NERDTreeToggle<CR>
+imap <C-f> <Esc>:w<CR>:NERDTreeToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" newline above from insert mode
+imap <C-p> <Esc>O
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" newline below from insert mode
+imap <C-o> <Esc>o
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " navigate directory of current file
-map <C-e> :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR><CR>
+nmap <C-e> :e<C-r>=escape(expand("%:p:h"), ' ') . '/'<CR><CR>
+imap <C-e> <Esc>:w<CR>:e<C-r>=escape(expand("%:p:h"), ' ') . '/'<CR><CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" yank to the cliboard
+vmap <C-c> "*y
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -121,15 +130,19 @@ map <C-e> :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR><CR>
 imap jj <Esc>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Git shortcuts
+nmap ga :w<CR>:Git add %<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " disallow arrow keys
-nnoremap <Left> <nop>
+nnoremap <Left>  <nop>
 nnoremap <Right> <nop>
-nnoremap <Up> <nop>
-nnoremap <Down> <nop>
-inoremap <Left> <nop>
+nnoremap <Up>    <nop>
+nnoremap <Down>  <nop>
+inoremap <Left>  <nop>
 inoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
+inoremap <Up>    <nop>
+inoremap <Down>  <nop>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -137,9 +150,8 @@ inoremap <Down> <nop>
 
 " code folding defaults
 set foldmethod=indent
-set foldlevel=1
-set foldnestmax=1
-set foldclose=""
+set foldlevel=2
+set foldnestmax=2
 
 " use ag instead of grep
 set grepprg=ag
@@ -188,3 +200,4 @@ set colorcolumn=+1
 " use gruvbox colors
 set bg=dark
 colorscheme jellybeans
+
